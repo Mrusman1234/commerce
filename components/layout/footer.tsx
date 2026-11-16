@@ -41,7 +41,18 @@ export default async function Footer() {
         >
           <FooterMenu menu={menu} />
         </Suspense>
-        <div className="md:ml-auto">
+        <div className="flex flex-col gap-3 md:ml-auto md:items-end">
+          <div className="flex flex-wrap items-center gap-2 text-xs">
+            <span className="rounded-md border border-neutral-200 bg-neutral-100/60 px-2.5 py-1 text-neutral-700 dark:border-neutral-800 dark:bg-neutral-900/60 dark:text-neutral-300">
+              💵 Cash on Delivery
+            </span>
+            <span className="rounded-md border border-neutral-200 bg-neutral-100/60 px-2.5 py-1 text-neutral-700 dark:border-neutral-800 dark:bg-neutral-900/60 dark:text-neutral-300">
+              💳 Visa / Mastercard
+            </span>
+            <span className="rounded-md border border-neutral-200 bg-neutral-100/60 px-2.5 py-1 text-neutral-700 dark:border-neutral-800 dark:bg-neutral-900/60 dark:text-neutral-300">
+              🔒 SSL Encrypted
+            </span>
+          </div>
           <a
             className="flex h-8 w-max flex-none items-center justify-center rounded-md border border-neutral-200 bg-white text-xs text-black dark:border-neutral-700 dark:bg-black dark:text-white"
             aria-label="Deploy on Vercel"

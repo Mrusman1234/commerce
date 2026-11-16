@@ -83,14 +83,64 @@ export default function CartModal() {
               </div>
 
               {!cart || cart.lines.length === 0 ? (
-                <div className="mt-20 flex w-full flex-col items-center justify-center overflow-hidden">
-                  <ShoppingCartIcon className="h-16" />
-                  <p className="mt-6 text-center text-2xl font-bold">
+                <div className="mt-20 flex w-full flex-col items-center justify-center overflow-hidden text-center">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800">
+                    <ShoppingCartIcon className="h-10 w-10 text-neutral-400" />
+                  </div>
+                  <p className="mt-6 text-xl font-bold">
                     Your cart is empty.
                   </p>
+                  <p className="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
+                    Add some minimal streetwear or desk essentials.
+                  </p>
+                  <Link
+                    href="/search"
+                    onClick={closeCart}
+                    className="mt-6 inline-block rounded-full bg-blue-600 px-6 py-2.5 text-xs font-semibold text-white transition hover:bg-blue-700"
+                  >
+                    Start Shopping
+                  </Link>
                 </div>
               ) : (
                 <div className="flex h-full flex-col justify-between overflow-hidden p-1">
+                  {/* Free Shipping Progress Bar */}
+                  {(() => {
+                    const subtotal = Number(cart.cost.subtotalAmount.amount);
+                    const threshold = 50;
+                    const diff = threshold - subtotal;
+                    const progress = Math.min(
+                      100,
+                      Math.round((subtotal / threshold) * 100),
+                    );
+
+                    return (
+                      <div className="my-2 rounded-lg border border-neutral-200 bg-neutral-50 p-2.5 text-xs dark:border-neutral-800 dark:bg-neutral-900">
+                        <div className="mb-1.5 flex justify-between font-medium">
+                          {diff <= 0 ? (
+                            <span className="font-semibold text-green-600 dark:text-green-400">
+                              🎉 You unlocked FREE Shipping!
+                            </span>
+                          ) : (
+                            <span>
+                              Add{" "}
+                              <span className="font-bold text-blue-600 dark:text-blue-400">
+                                ${diff.toFixed(2)}
+                              </span>{" "}
+                              more for FREE Shipping
+                            </span>
+                          )}
+                          <span className="text-neutral-400">{progress}%</span>
+                        </div>
+                        <div className="h-1.5 w-full overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-700">
+                          <div
+                            className="h-full rounded-full bg-green-500 transition-all duration-300"
+                            style={{ width: `${progress}%` }}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })()}
+
                   <ul className="grow overflow-auto py-4">
                     {cart.lines
                       .sort((a, b) =>
@@ -218,6 +268,9 @@ export default function CartModal() {
                   <form action={redirectToCheckout}>
                     <CheckoutButton />
                   </form>
+                  <p className="mt-2 text-center text-[11px] text-neutral-500 dark:text-neutral-400">
+                    🔒 SSL Encrypted • Cash on Delivery & Card Accepted
+                  </p>
                 </div>
               )}
             </Dialog.Panel>

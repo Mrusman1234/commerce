@@ -8,7 +8,7 @@ export function WelcomeToast() {
     // ignore if screen height is too small
     if (window.innerHeight < 650) return;
     if (!document.cookie.includes("welcome-toast=2")) {
-      toast("🛍️ Welcome to Next.js Commerce!", {
+      toast("🛍️ Welcome to Acme Store!", {
         id: "welcome-toast",
         duration: Infinity,
         onDismiss: () => {
@@ -16,16 +16,11 @@ export function WelcomeToast() {
         },
         description: (
           <>
-            This is a high-performance, SSR storefront powered by Shopify,
-            Next.js, and Vercel.{" "}
-            <a
-              href="https://vercel.com/templates/next.js/nextjs-commerce"
-              className="text-blue-600 hover:underline"
-              target="_blank"
-            >
-              Deploy your own
-            </a>
-            .
+            Enjoy 10% off your order with code{" "}
+            <span className="font-mono font-bold text-blue-600 dark:text-blue-400">
+              SAVE10
+            </span>
+            . Free tracked shipping on orders over $50 + Cash on Delivery available!
           </>
         ),
       });
