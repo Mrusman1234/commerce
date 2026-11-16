@@ -1,73 +1,83 @@
-> [!WARNING]
-> This repository is archived and the template is deprecated. Development has moved to [vercel/shop](https://github.com/vercel/shop), Vercel's Shopify storefront built with Next.js.
+# Acme Store — Next.js Commerce Storefront
 
-# Next.js Commerce
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMrusman1234%2Fcommerce)
 
-A high-performance, server-rendered Next.js App Router ecommerce application.
+A modern, high-performance ecommerce storefront built with **Next.js 15 (App Router & Turbopack)**, **React 19**, **Tailwind CSS**, and optional **Shopify** headless backend.
 
-This template uses React Server Components, Server Actions, `Suspense`, `useOptimistic`, and more.
+Features a full built-in product catalog, conversion-optimized landing page, dynamic cart drawer with a free shipping tier bar, and a complete **Cash on Delivery (COD)** & Card checkout flow.
 
-> [!NOTE]
-> Looking for Next.js Commerce v1? View the [code](https://github.com/vercel/commerce/tree/v1) and [release notes](https://github.com/vercel/commerce/releases/tag/v1).
+---
 
-## Providers
+## ✨ Features
 
-Vercel is happy to partner and work with any commerce provider to help them get a similar template up and running and listed below. Alternative providers should be able to fork this repository and swap out the `lib/shopify` file with their own implementation while leaving the rest of the template mostly unchanged.
+- **⚡ Next.js 15 & React 19:** Powered by React Server Components (RSC), Server Actions, and Partial Prerendering (PPR).
+- **🛍️ Complete Product Catalog:** 12 curated apparel, workstation, and lifestyle items with variant selectors (Size & Color), high-resolution photography, and pricing.
+- **🎯 Conversion-Optimized Landing Page:**
+  - Dynamic Hero Banner with seasonal drop callouts.
+  - Flagship 3-Item Grid highlighting showstopper products.
+  - Value Proposition & Trust Bar (Free Delivery, 30-Day Returns, COD, Organic Cotton).
+  - Category Spotlight cards (*Apparel* & *Accessories*).
+  - Animated Trending Carousel.
+  - Promo callout for 10% discount (`SAVE10`).
+- **🛒 Dynamic Cart System:**
+  - Instant slide-out cart drawer with quantity increments (`+` / `-`) and item removal.
+  - **Free Shipping Progress Bar:** Real-time tier calculator toward free shipping over $50.
+  - Cookie-backed local session persistence.
+- **💳 Complete Checkout Experience (`/checkout`):**
+  - Contact & Delivery Address collection.
+  - Shipping speed options: Standard (FREE) vs Express ($12).
+  - Payment options: **Cash on Delivery (COD)** and **Credit/Debit Card**.
+  - Interactive Promo Engine (`SAVE10` gives 10% off).
+  - Itemized Order Confirmation receipt with generated Order ID (`/checkout/success`).
+- **🔍 Search & Filter Engine:**
+  - Instant search by product titles, tags, and descriptions.
+  - Collection filtering (`/search/apparel`, `/search/accessories`).
+  - Sorting by Price (Low/High), Trending, and Latest Arrivals.
+- **🎨 Glassmorphic Header & Multi-Column Footer:**
+  - Sticky header with top announcement bar and category status pills (`HOT`, `NEW`).
+  - Multi-column footer with newsletter signup, customer support links, and accepted payment badges (COD, Visa, Apple Pay, 256-Bit SSL).
 
-- Shopify (this repository)
-- [BigCommerce](https://github.com/bigcommerce/nextjs-commerce) ([Demo](https://next-commerce-v2.vercel.app/))
-- [Ecwid by Lightspeed](https://github.com/Ecwid/ecwid-nextjs-commerce/) ([Demo](https://ecwid-nextjs-commerce.vercel.app/))
-- [Geins](https://github.com/geins-io/vercel-nextjs-commerce) ([Demo](https://geins-nextjs-commerce-starter.vercel.app/))
-- [Medusa](https://github.com/medusajs/vercel-commerce) ([Demo](https://medusa-nextjs-commerce.vercel.app/))
-- [Prodigy Commerce](https://github.com/prodigycommerce/nextjs-commerce) ([Demo](https://prodigy-nextjs-commerce.vercel.app/))
-- [Saleor](https://github.com/saleor/nextjs-commerce) ([Demo](https://saleor-commerce.vercel.app/))
-- [Shopware](https://github.com/shopwareLabs/vercel-commerce) ([Demo](https://shopware-vercel-commerce-react.vercel.app/))
-- [Swell](https://github.com/swellstores/verswell-commerce) ([Demo](https://verswell-commerce.vercel.app/))
-- [Umbraco](https://github.com/umbraco/Umbraco.VercelCommerce.Demo) ([Demo](https://vercel-commerce-demo.umbraco.com/))
-- [Wix](https://github.com/wix/headless-templates/tree/main/nextjs/commerce) ([Demo](https://wix-nextjs-commerce.vercel.app/))
-- [Fourthwall](https://github.com/FourthwallHQ/vercel-commerce) ([Demo](https://vercel-storefront.fourthwall.app/))
+---
 
-> Note: Providers, if you are looking to use similar products for your demo, you can [download these assets](https://drive.google.com/file/d/1q_bKerjrwZgHwCw0ovfUMW6He9VtepO_/view?usp=sharing).
+## 🚀 One-Click Deployment to Vercel
 
-## Integrations
+### Option 1: Import via Vercel Dashboard (Recommended)
 
-Integrations enable upgraded or additional functionality for Next.js Commerce
+1. Open [vercel.com/new](https://vercel.com/new).
+2. Under **Import Git Repository**, select **`Mrusman1234/commerce`**.
+3. (Optional) In **Environment Variables**, add:
+   ```env
+   COMPANY_NAME="Acme Store"
+   SITE_NAME="Acme Store"
+   ```
+4. Click **Deploy**. Vercel will build and assign your live production URL in under 2 minutes.
 
-- [Orama](https://github.com/oramasearch/nextjs-commerce) ([Demo](https://vercel-commerce.oramasearch.com/))
+---
 
-  - Upgrades search to include typeahead with dynamic re-rendering, vector-based similarity search, and JS-based configuration.
-  - Search runs entirely in the browser for smaller catalogs or on a CDN for larger.
+## 🛠️ Local Development
 
-- [React Bricks](https://github.com/ReactBricks/nextjs-commerce-rb) ([Demo](https://nextjs-commerce.reactbricks.com/))
-  - Edit pages, product details, and footer content visually using [React Bricks](https://www.reactbricks.com) visual headless CMS.
-
-## Running locally
-
-You will need to use the environment variables [defined in `.env.example`](.env.example) to run Next.js Commerce. It's recommended you use [Vercel Environment Variables](https://vercel.com/docs/concepts/projects/environment-variables) for this, but a `.env` file is all that is necessary.
-
-> Note: You should not commit your `.env` file or it will expose secrets that will allow others to control your Shopify store.
-
-1. Install Vercel CLI: `npm i -g vercel`
-2. Link local instance with Vercel and GitHub accounts (creates `.vercel` directory): `vercel link`
-3. Download your environment variables: `vercel env pull`
-
+### 1. Clone the repository
 ```bash
-pnpm install
-pnpm dev
+git clone https://github.com/Mrusman1234/commerce.git
+cd commerce
 ```
 
-Your app should now be running on [localhost:3000](http://localhost:3000/).
+### 2. Install dependencies
+```bash
+pnpm install
+# or npm install
+```
 
-<details>
-  <summary>Expand if you work at Vercel and want to run locally and / or contribute</summary>
+### 3. Run the development server
+```bash
+pnpm dev
+# or npm run dev
+```
 
-1. Run `vc link`.
-1. Select the `Vercel Solutions` scope.
-1. Connect to the existing `commerce-shopify` project.
-1. Run `vc env pull` to get environment variables.
-1. Run `pnpm dev` to ensure everything is working correctly.
-</details>
+Open [http://localhost:3000](http://localhost:3000) (or [http://localhost:3001](http://localhost:3001) if port 3000 is occupied).
 
-## Vercel, Next.js Commerce, and Shopify Integration Guide
+---
 
-You can use this comprehensive [integration guide](https://vercel.com/docs/integrations/ecommerce/shopify) with step-by-step instructions on how to configure Shopify as a headless CMS using Next.js Commerce as your headless Shopify storefront on Vercel.
+## 📄 License
+
+MIT License.
