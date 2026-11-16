@@ -80,7 +80,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                   <ul className="flex w-full flex-col">
                     {menu.map((item: Menu) => (
                       <li
-                        className="py-2 text-xl text-black transition-colors hover:text-neutral-500 dark:text-white"
+                        className="py-2 text-xl font-medium text-black transition-colors hover:text-blue-600 dark:text-white dark:hover:text-blue-400"
                         key={item.title}
                       >
                         <Link
@@ -94,6 +94,53 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                     ))}
                   </ul>
                 ) : null}
+
+                <div className="mt-8 border-t border-neutral-200 pt-6 dark:border-neutral-800">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-neutral-400">
+                    Customer Care
+                  </p>
+                  <ul className="mt-3 space-y-3 text-sm">
+                    <li>
+                      <Link
+                        href="/faq"
+                        onClick={closeMobileMenu}
+                        className="text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white"
+                      >
+                        Frequently Asked Questions (FAQ)
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/shipping"
+                        onClick={closeMobileMenu}
+                        className="text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white"
+                      >
+                        Shipping & Cash on Delivery
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/about"
+                        onClick={closeMobileMenu}
+                        className="text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white"
+                      >
+                        About Acme Store
+                      </Link>
+                    </li>
+                  </ul>
+                  <div className="mt-6 rounded-lg bg-neutral-100 p-3 text-xs text-neutral-600 dark:bg-neutral-900 dark:text-neutral-300">
+                    <p className="font-semibold text-neutral-900 dark:text-white">
+                      🎉 Extra 10% Discount
+                    </p>
+                    <p className="mt-0.5">
+                      Use promo code{" "}
+                      <span className="font-mono font-bold text-blue-600 dark:text-blue-400">
+                        SAVE10
+                      </span>{" "}
+                      at checkout!
+                    </p>
+                  </div>
+                </div>
               </div>
             </Dialog.Panel>
           </Transition.Child>
